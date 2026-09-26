@@ -1,0 +1,162 @@
+[
+  {
+    "attack_id": "ATK-014",
+    "attack_type": "persistence",
+    "start": "2026-09-22 02:50:54",
+    "end": "2026-09-22 02:51:54",
+    "src_ip": "10.0.0.21",
+    "target_host": "LINUX-SRV01",
+    "mitre_technique": "T1053.003",
+    "note": "Cron persistence job pointed at a hidden directory"
+  },
+  {
+    "attack_id": "ATK-001",
+    "attack_type": "brute_force",
+    "start": "2026-09-22 03:00:37",
+    "end": "2026-09-22 03:06:37",
+    "src_ip": "203.0.113.7",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1110",
+    "note": "RDP brute force against local admin account"
+  },
+  {
+    "attack_id": "ATK-010",
+    "attack_type": "privilege_escalation",
+    "start": "2026-09-22 03:31:23",
+    "end": "2026-09-22 03:33:23",
+    "src_ip": "10.0.0.15",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1134",
+    "note": "Token manipulation / whoami priv enumeration by non-admin user"
+  },
+  {
+    "attack_id": "ATK-012",
+    "attack_type": "new_admin_account",
+    "start": "2026-09-22 03:50:25",
+    "end": "2026-09-22 03:51:25",
+    "src_ip": "10.0.0.22",
+    "target_host": "LINUX-SRV02",
+    "mitre_technique": "T1136.001",
+    "note": "New Linux account created and added to sudo group overnight"
+  },
+  {
+    "attack_id": "ATK-002",
+    "attack_type": "brute_force",
+    "start": "2026-09-22 04:12:47",
+    "end": "2026-09-22 04:17:47",
+    "src_ip": "198.51.100.88",
+    "target_host": "LINUX-SRV01",
+    "mitre_technique": "T1110",
+    "note": "SSH brute force against root"
+  },
+  {
+    "attack_id": "ATK-009",
+    "attack_type": "privilege_escalation",
+    "start": "2026-09-22 04:22:04",
+    "end": "2026-09-22 04:25:04",
+    "src_ip": "10.0.0.22",
+    "target_host": "LINUX-SRV02",
+    "mitre_technique": "T1548.003",
+    "note": "Standard user invoked sudo to root and edited sudoers, outside business hours"
+  },
+  {
+    "attack_id": "ATK-008",
+    "attack_type": "impossible_login",
+    "start": "2026-09-22 12:51:53",
+    "end": "2026-09-22 13:03:53",
+    "src_ip": "198.51.100.23|192.0.2.44",
+    "target_host": "LINUX-SRV02",
+    "mitre_technique": "T1078",
+    "note": "Same account logs in from CN-Shanghai then US-Ashburn 8 min apart"
+  },
+  {
+    "attack_id": "ATK-007",
+    "attack_type": "impossible_login",
+    "start": "2026-09-22 16:20:03",
+    "end": "2026-09-22 16:32:03",
+    "src_ip": "192.0.2.44|198.51.100.88",
+    "target_host": "LINUX-SRV02",
+    "mitre_technique": "T1078",
+    "note": "Same account logs in from US-Ashburn then BR-SaoPaulo 8 min apart"
+  },
+  {
+    "attack_id": "ATK-011",
+    "attack_type": "new_admin_account",
+    "start": "2026-09-22 22:56:57",
+    "end": "2026-09-22 22:57:57",
+    "src_ip": "10.0.0.16",
+    "target_host": "WIN-DESKTOP02",
+    "mitre_technique": "T1136.001",
+    "note": "New local account created and immediately added to Administrators, after hours"
+  },
+  {
+    "attack_id": "ATK-006",
+    "attack_type": "port_scan",
+    "start": "2026-09-23 02:09:09",
+    "end": "2026-09-23 02:10:39",
+    "src_ip": "198.51.100.23",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1046",
+    "note": "Sequential TCP port sweep"
+  },
+  {
+    "attack_id": "ATK-013",
+    "attack_type": "persistence",
+    "start": "2026-09-23 04:39:27",
+    "end": "2026-09-23 04:40:27",
+    "src_ip": "10.0.0.16",
+    "target_host": "WIN-DESKTOP02",
+    "mitre_technique": "T1053.005",
+    "note": "Scheduled task launching binary from a public/user-writable directory"
+  },
+  {
+    "attack_id": "ATK-003",
+    "attack_type": "suspicious_powershell",
+    "start": "2026-09-23 18:17:20",
+    "end": "2026-09-23 18:19:20",
+    "src_ip": "10.0.0.15",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1059.001",
+    "note": "Encoded download-and-execute PowerShell cradle"
+  },
+  {
+    "attack_id": "ATK-004",
+    "attack_type": "suspicious_powershell",
+    "start": "2026-09-23 19:32:01",
+    "end": "2026-09-23 19:34:01",
+    "src_ip": "10.0.0.15",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1059.001",
+    "note": "Encoded download-and-execute PowerShell cradle"
+  },
+  {
+    "attack_id": "ATK-005",
+    "attack_type": "port_scan",
+    "start": "2026-09-24 04:33:06",
+    "end": "2026-09-24 04:34:36",
+    "src_ip": "198.51.100.88",
+    "target_host": "WIN-DESKTOP01",
+    "mitre_technique": "T1046",
+    "note": "Sequential TCP port sweep"
+  },
+  {
+    "attack_id": "ATK-015",
+    "attack_type": "large_outbound_transfer",
+    "start": "2026-09-24 22:34:44",
+    "end": "2026-09-24 22:35:44",
+    "src_ip": "10.0.0.16",
+    "target_host": "WIN-DESKTOP02",
+    "mitre_technique": "T1048",
+    "note": "1249 MB pushed to an external IP late at night"
+  },
+  {
+    "attack_id": "ATK-016",
+    "attack_type": "large_outbound_transfer",
+    "start": "2026-09-24 22:36:28",
+    "end": "2026-09-24 22:37:28",
+    "src_ip": "10.0.0.16",
+    "target_host": "WIN-DESKTOP02",
+    "mitre_technique": "T1048",
+    "note": "658 MB pushed to an external IP late at night"
+  }
+]

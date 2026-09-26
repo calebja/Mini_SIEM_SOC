@@ -1,0 +1,291 @@
+Sep 22 00:37:31 LINUX-SRV01 CRON[1480]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 02:50:54 LINUX-SRV01 CRON[4264]: (root) CMD (/tmp/.hidden/backdoor.sh) GT=ATK-014
+Sep 22 02:51:39 LINUX-SRV01 sshd[4047]: authorized_keys modified for user svc_tmp GT=ATK-014
+Sep 22 03:16:29 LINUX-SRV01 CRON[8157]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 03:50:25 LINUX-SRV02 useradd[2449]: new user: name=svc_tmp, UID=1010 GT=ATK-012
+Sep 22 03:50:31 LINUX-SRV02 usermod[1108]: add 'svc_tmp' to group 'sudo' GT=ATK-012
+Sep 22 04:12:58 LINUX-SRV01 sshd[2204]: Failed password for root from 198.51.100.88 port 45433 ssh2 GT=ATK-002
+Sep 22 04:13:06 LINUX-SRV01 sshd[1890]: Failed password for root from 198.51.100.88 port 44282 ssh2 GT=ATK-002
+Sep 22 04:13:11 LINUX-SRV01 sshd[8454]: Failed password for root from 198.51.100.88 port 35834 ssh2 GT=ATK-002
+Sep 22 04:13:17 LINUX-SRV01 sshd[3234]: Failed password for root from 198.51.100.88 port 44999 ssh2 GT=ATK-002
+Sep 22 04:13:27 LINUX-SRV01 sshd[6875]: Failed password for root from 198.51.100.88 port 38837 ssh2 GT=ATK-002
+Sep 22 04:13:32 LINUX-SRV01 sshd[3084]: Failed password for root from 198.51.100.88 port 31051 ssh2 GT=ATK-002
+Sep 22 04:13:41 LINUX-SRV01 sshd[1977]: Failed password for root from 198.51.100.88 port 39194 ssh2 GT=ATK-002
+Sep 22 04:13:45 LINUX-SRV01 sshd[8627]: Failed password for root from 198.51.100.88 port 45026 ssh2 GT=ATK-002
+Sep 22 04:13:52 LINUX-SRV01 sshd[6629]: Failed password for root from 198.51.100.88 port 37204 ssh2 GT=ATK-002
+Sep 22 04:14:03 LINUX-SRV01 sshd[3568]: Failed password for root from 198.51.100.88 port 35568 ssh2 GT=ATK-002
+Sep 22 04:14:11 LINUX-SRV01 sshd[4763]: Failed password for root from 198.51.100.88 port 32833 ssh2 GT=ATK-002
+Sep 22 04:14:18 LINUX-SRV01 sshd[9548]: Failed password for root from 198.51.100.88 port 46030 ssh2 GT=ATK-002
+Sep 22 04:14:28 LINUX-SRV01 sshd[4546]: Failed password for root from 198.51.100.88 port 49384 ssh2 GT=ATK-002
+Sep 22 04:14:36 LINUX-SRV01 sshd[8581]: Failed password for root from 198.51.100.88 port 39147 ssh2 GT=ATK-002
+Sep 22 04:14:39 LINUX-SRV01 sshd[8014]: Failed password for root from 198.51.100.88 port 38082 ssh2 GT=ATK-002
+Sep 22 04:14:44 LINUX-SRV01 sshd[8114]: Failed password for root from 198.51.100.88 port 48987 ssh2 GT=ATK-002
+Sep 22 04:14:49 LINUX-SRV01 sshd[3440]: Failed password for root from 198.51.100.88 port 48799 ssh2 GT=ATK-002
+Sep 22 04:15:00 LINUX-SRV01 sshd[7844]: Failed password for root from 198.51.100.88 port 31449 ssh2 GT=ATK-002
+Sep 22 04:15:03 LINUX-SRV01 sshd[8711]: Failed password for root from 198.51.100.88 port 46522 ssh2 GT=ATK-002
+Sep 22 04:15:07 LINUX-SRV01 sshd[9701]: Failed password for root from 198.51.100.88 port 42921 ssh2 GT=ATK-002
+Sep 22 04:15:14 LINUX-SRV01 sshd[2605]: Failed password for root from 198.51.100.88 port 44825 ssh2 GT=ATK-002
+Sep 22 04:15:22 LINUX-SRV01 sshd[2361]: Failed password for root from 198.51.100.88 port 48300 ssh2 GT=ATK-002
+Sep 22 04:15:31 LINUX-SRV01 sshd[7662]: Failed password for root from 198.51.100.88 port 37143 ssh2 GT=ATK-002
+Sep 22 04:15:36 LINUX-SRV01 sshd[5846]: Failed password for root from 198.51.100.88 port 37833 ssh2 GT=ATK-002
+Sep 22 04:15:44 LINUX-SRV01 sshd[2486]: Failed password for root from 198.51.100.88 port 30521 ssh2 GT=ATK-002
+Sep 22 04:15:52 LINUX-SRV01 sshd[5994]: Failed password for root from 198.51.100.88 port 35301 ssh2 GT=ATK-002
+Sep 22 04:16:01 LINUX-SRV01 sshd[1399]: Failed password for root from 198.51.100.88 port 44904 ssh2 GT=ATK-002
+Sep 22 04:16:08 LINUX-SRV01 sshd[3271]: Failed password for root from 198.51.100.88 port 43282 ssh2 GT=ATK-002
+Sep 22 04:16:13 LINUX-SRV01 sshd[7068]: Failed password for root from 198.51.100.88 port 45214 ssh2 GT=ATK-002
+Sep 22 04:16:22 LINUX-SRV01 sshd[1022]: Failed password for root from 198.51.100.88 port 32316 ssh2 GT=ATK-002
+Sep 22 04:22:04 LINUX-SRV02 sudo: agarcia : TTY=pts/1 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/bash GT=ATK-009
+Sep 22 04:22:24 LINUX-SRV02 sudo: agarcia : TTY=pts/1 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/sbin/visudo GT=ATK-009
+Sep 22 04:22:44 LINUX-SRV02 sudo: root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/chmod u+s /bin/bash GT=ATK-009
+Sep 22 04:29:29 LINUX-SRV02 CRON[8307]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 05:15:05 LINUX-SRV02 CRON[1011]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 07:37:55 LINUX-SRV02 CRON[1462]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 07:57:45 LINUX-SRV01 sshd[6236]: Accepted password for svc_backup from 10.0.0.50 port 51384 ssh2
+Sep 22 08:18:41 LINUX-SRV01 sshd[5009]: Accepted password for svc_backup from 10.0.0.50 port 41449 ssh2
+Sep 22 08:28:29 LINUX-SRV01 sshd[2929]: Accepted password for svc_backup from 10.0.0.53 port 48577 ssh2
+Sep 22 08:28:53 LINUX-SRV02 sshd[7431]: Accepted password for mchen from 10.0.0.53 port 59234 ssh2
+Sep 22 08:38:40 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 08:44:11 LINUX-SRV01 sshd[7813]: Accepted password for svc_backup from 10.0.0.52 port 57997 ssh2
+Sep 22 08:45:38 LINUX-SRV02 sshd[8348]: Accepted password for mchen from 10.0.0.53 port 52369 ssh2
+Sep 22 09:03:23 LINUX-SRV02 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 09:08:25 LINUX-SRV02 sshd[9501]: Accepted password for agarcia from 10.0.0.52 port 49307 ssh2
+Sep 22 09:11:32 LINUX-SRV02 CRON[4267]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 09:23:53 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 22 09:27:00 LINUX-SRV01 sshd[1256]: Accepted password for jsmith from 10.0.0.53 port 47886 ssh2
+Sep 22 09:53:09 LINUX-SRV01 sshd[7408]: Accepted password for svc_backup from 10.0.0.52 port 55173 ssh2
+Sep 22 10:06:05 LINUX-SRV01 sshd[3316]: Accepted password for agarcia from 10.0.0.52 port 56738 ssh2
+Sep 22 10:13:22 LINUX-SRV01 sshd[7293]: Accepted password for jsmith from 10.0.0.52 port 53701 ssh2
+Sep 22 10:26:17 LINUX-SRV02 sshd[1741]: Accepted password for svc_backup from 10.0.0.52 port 53126 ssh2
+Sep 22 10:29:21 LINUX-SRV01 sshd[8121]: Accepted password for jsmith from 10.0.0.51 port 49042 ssh2
+Sep 22 10:37:18 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 22 10:45:09 LINUX-SRV02 sshd[2871]: Accepted password for svc_backup from 10.0.0.50 port 48778 ssh2
+Sep 22 10:52:49 LINUX-SRV02 sshd[9011]: Accepted password for mchen from 10.0.0.51 port 50388 ssh2
+Sep 22 10:59:18 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 22 11:10:07 LINUX-SRV01 sshd[3910]: Accepted password for svc_backup from 10.0.0.52 port 53049 ssh2
+Sep 22 11:17:17 LINUX-SRV02 sshd[6530]: Accepted password for agarcia from 10.0.0.53 port 48432 ssh2
+Sep 22 11:17:36 LINUX-SRV01 sshd[2514]: Accepted password for svc_backup from 10.0.0.52 port 57551 ssh2
+Sep 22 11:34:32 LINUX-SRV02 sshd[2388]: Accepted password for agarcia from 10.0.0.52 port 44389 ssh2
+Sep 22 11:43:06 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 22 11:46:13 LINUX-SRV01 CRON[1920]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 11:49:50 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 11:55:49 LINUX-SRV02 sshd[3807]: Accepted password for jsmith from 10.0.0.50 port 42709 ssh2
+Sep 22 11:59:11 LINUX-SRV02 sshd[5947]: Accepted password for mchen from 10.0.0.52 port 59086 ssh2
+Sep 22 11:59:28 LINUX-SRV02 sshd[7809]: Accepted password for svc_backup from 10.0.0.53 port 54544 ssh2
+Sep 22 12:06:01 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 12:16:13 LINUX-SRV02 sshd[7021]: Accepted password for jsmith from 10.0.0.52 port 47236 ssh2
+Sep 22 12:36:09 LINUX-SRV02 sshd[2468]: Accepted password for jsmith from 10.0.0.50 port 51597 ssh2
+Sep 22 12:51:53 LINUX-SRV02 sshd[8278]: Accepted password for jsmith from 198.51.100.23 port 43618 ssh2 GT=ATK-008
+Sep 22 12:57:57 LINUX-SRV02 sshd[6523]: Accepted password for agarcia from 10.0.0.50 port 49667 ssh2
+Sep 22 12:59:44 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 12:59:53 LINUX-SRV02 sshd[8249]: Accepted password for jsmith from 192.0.2.44 port 39457 ssh2 GT=ATK-008
+Sep 22 13:06:46 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 22 13:08:28 LINUX-SRV01 sshd[7666]: Accepted password for jsmith from 10.0.0.51 port 55587 ssh2
+Sep 22 13:21:56 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 13:37:58 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 13:40:41 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 22 13:51:51 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 22 14:04:09 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 14:04:43 LINUX-SRV01 CRON[2817]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 14:06:18 LINUX-SRV01 sshd[2217]: Accepted password for jsmith from 10.0.0.50 port 41589 ssh2
+Sep 22 14:18:13 LINUX-SRV02 sshd[7329]: Accepted password for mchen from 10.0.0.50 port 56523 ssh2
+Sep 22 14:44:21 LINUX-SRV01 CRON[6582]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 14:46:03 LINUX-SRV02 sshd[2761]: Accepted password for mchen from 10.0.0.50 port 54120 ssh2
+Sep 22 14:50:10 LINUX-SRV02 sshd[9901]: Accepted password for mchen from 10.0.0.53 port 57180 ssh2
+Sep 22 14:53:11 LINUX-SRV02 sshd[7532]: Accepted password for mchen from 10.0.0.52 port 44284 ssh2
+Sep 22 15:03:44 LINUX-SRV02 sshd[8055]: Accepted password for svc_backup from 10.0.0.52 port 59477 ssh2
+Sep 22 15:04:44 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 22 15:06:41 LINUX-SRV02 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 22 15:42:01 LINUX-SRV01 sshd[6301]: Accepted password for agarcia from 10.0.0.53 port 48128 ssh2
+Sep 22 15:45:53 LINUX-SRV02 CRON[9743]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 15:48:40 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 15:56:17 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 16:17:00 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 22 16:20:03 LINUX-SRV02 sshd[7056]: Accepted password for agarcia from 192.0.2.44 port 42652 ssh2 GT=ATK-007
+Sep 22 16:23:49 LINUX-SRV01 CRON[6799]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 22 16:28:03 LINUX-SRV02 sshd[7108]: Accepted password for agarcia from 198.51.100.88 port 30399 ssh2 GT=ATK-007
+Sep 22 16:30:32 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 22 16:35:12 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 17:09:30 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 17:49:52 LINUX-SRV02 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 22 17:51:01 LINUX-SRV02 sshd[3292]: Accepted password for mchen from 10.0.0.53 port 42569 ssh2
+Sep 22 17:56:44 LINUX-SRV01 sshd[8939]: Accepted password for mchen from 10.0.0.50 port 44473 ssh2
+Sep 22 18:06:29 LINUX-SRV02 sshd[9008]: Accepted password for jsmith from 10.0.0.51 port 42979 ssh2
+Sep 22 18:13:59 LINUX-SRV01 sshd[7841]: Accepted password for jsmith from 10.0.0.52 port 49672 ssh2
+Sep 22 18:14:56 LINUX-SRV01 sshd[4110]: Accepted password for mchen from 10.0.0.52 port 45221 ssh2
+Sep 22 18:36:38 LINUX-SRV01 sshd[3662]: Accepted password for mchen from 10.0.0.52 port 52876 ssh2
+Sep 22 18:46:02 LINUX-SRV01 sshd[2641]: Accepted password for agarcia from 10.0.0.50 port 53543 ssh2
+Sep 22 18:54:47 LINUX-SRV02 sshd[5944]: Accepted password for mchen from 10.0.0.51 port 44694 ssh2
+Sep 22 18:58:01 LINUX-SRV01 sshd[6707]: Accepted password for jsmith from 10.0.0.51 port 50220 ssh2
+Sep 22 19:15:30 LINUX-SRV02 sshd[2674]: Accepted password for mchen from 10.0.0.52 port 44341 ssh2
+Sep 22 19:19:51 LINUX-SRV02 sshd[1496]: Accepted password for agarcia from 10.0.0.53 port 56319 ssh2
+Sep 23 07:09:14 LINUX-SRV02 sshd[9228]: Accepted password for mchen from 10.0.0.50 port 54109 ssh2
+Sep 23 07:35:20 LINUX-SRV01 sshd[9508]: Accepted password for mchen from 10.0.0.53 port 54974 ssh2
+Sep 23 07:45:02 LINUX-SRV02 sshd[7487]: Accepted password for mchen from 10.0.0.50 port 48338 ssh2
+Sep 23 07:46:59 LINUX-SRV01 sshd[5703]: Accepted password for svc_backup from 10.0.0.50 port 53397 ssh2
+Sep 23 08:00:24 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 23 08:04:28 LINUX-SRV01 sshd[1535]: Accepted password for agarcia from 10.0.0.52 port 49006 ssh2
+Sep 23 08:04:46 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 23 08:06:03 LINUX-SRV01 sshd[3777]: Accepted password for agarcia from 10.0.0.53 port 44549 ssh2
+Sep 23 08:34:39 LINUX-SRV01 sshd[9094]: Accepted password for agarcia from 10.0.0.51 port 40861 ssh2
+Sep 23 08:39:19 LINUX-SRV01 sshd[5888]: Accepted password for jsmith from 10.0.0.50 port 55171 ssh2
+Sep 23 09:11:32 LINUX-SRV01 sshd[1674]: Accepted password for agarcia from 10.0.0.52 port 40929 ssh2
+Sep 23 09:11:38 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 23 09:21:55 LINUX-SRV01 sshd[3034]: Accepted password for svc_backup from 10.0.0.50 port 56977 ssh2
+Sep 23 09:32:31 LINUX-SRV01 sshd[1110]: Accepted password for agarcia from 10.0.0.52 port 52966 ssh2
+Sep 23 09:35:34 LINUX-SRV02 sshd[1969]: Accepted password for mchen from 10.0.0.52 port 42931 ssh2
+Sep 23 09:39:02 LINUX-SRV02 sshd[9498]: Accepted password for jsmith from 10.0.0.51 port 46794 ssh2
+Sep 23 10:01:07 LINUX-SRV01 sshd[3880]: Accepted password for agarcia from 10.0.0.53 port 41190 ssh2
+Sep 23 10:02:47 LINUX-SRV01 sshd[9255]: Accepted password for jsmith from 10.0.0.51 port 49478 ssh2
+Sep 23 10:08:46 LINUX-SRV01 sshd[2211]: Accepted password for svc_backup from 10.0.0.53 port 54715 ssh2
+Sep 23 10:16:53 LINUX-SRV02 sshd[2294]: Accepted password for mchen from 10.0.0.53 port 52224 ssh2
+Sep 23 10:20:10 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 23 10:59:33 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 23 11:37:31 LINUX-SRV02 sshd[7227]: Accepted password for svc_backup from 10.0.0.51 port 42808 ssh2
+Sep 23 11:37:56 LINUX-SRV02 CRON[7363]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 23 11:40:13 LINUX-SRV02 sshd[8635]: Accepted password for mchen from 10.0.0.53 port 43231 ssh2
+Sep 23 11:42:11 LINUX-SRV01 sshd[9792]: Accepted password for jsmith from 10.0.0.51 port 44910 ssh2
+Sep 23 11:49:47 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 23 11:51:05 LINUX-SRV02 sshd[1108]: Accepted password for svc_backup from 10.0.0.50 port 57439 ssh2
+Sep 23 12:17:35 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 23 12:38:26 LINUX-SRV02 sshd[4764]: Accepted password for jsmith from 10.0.0.50 port 46927 ssh2
+Sep 23 12:56:00 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 23 12:57:41 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 23 13:11:39 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 23 13:17:42 LINUX-SRV01 sshd[5040]: Accepted password for mchen from 10.0.0.52 port 56246 ssh2
+Sep 23 13:21:33 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 23 13:41:29 LINUX-SRV02 sshd[1379]: Accepted password for mchen from 10.0.0.53 port 42950 ssh2
+Sep 23 14:00:00 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 23 14:08:53 LINUX-SRV01 sshd[7453]: Accepted password for agarcia from 10.0.0.50 port 52228 ssh2
+Sep 23 14:17:08 LINUX-SRV02 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 23 14:17:10 LINUX-SRV02 sshd[9899]: Accepted password for mchen from 10.0.0.50 port 52441 ssh2
+Sep 23 14:18:10 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 23 14:26:22 LINUX-SRV02 sshd[2077]: Accepted password for agarcia from 10.0.0.50 port 50134 ssh2
+Sep 23 14:45:12 LINUX-SRV02 sshd[8973]: Accepted password for svc_backup from 10.0.0.51 port 57608 ssh2
+Sep 23 14:45:36 LINUX-SRV02 sshd[5781]: Accepted password for svc_backup from 10.0.0.50 port 53559 ssh2
+Sep 23 15:03:23 LINUX-SRV02 sshd[1517]: Accepted password for agarcia from 10.0.0.51 port 58761 ssh2
+Sep 23 15:14:13 LINUX-SRV01 sshd[7046]: Accepted password for svc_backup from 10.0.0.52 port 54899 ssh2
+Sep 23 15:15:35 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 23 15:23:07 LINUX-SRV02 sshd[2735]: Accepted password for mchen from 10.0.0.53 port 40345 ssh2
+Sep 23 15:50:16 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 23 15:52:31 LINUX-SRV01 sshd[3924]: Accepted password for mchen from 10.0.0.50 port 57604 ssh2
+Sep 23 15:57:07 LINUX-SRV01 sshd[8933]: Accepted password for svc_backup from 10.0.0.53 port 55218 ssh2
+Sep 23 16:19:12 LINUX-SRV02 sshd[2208]: Accepted password for svc_backup from 10.0.0.53 port 44106 ssh2
+Sep 23 16:22:01 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 23 16:31:29 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 23 16:35:09 LINUX-SRV01 sshd[7370]: Accepted password for svc_backup from 10.0.0.53 port 40145 ssh2
+Sep 23 16:46:45 LINUX-SRV02 sshd[3661]: Accepted password for jsmith from 10.0.0.52 port 58479 ssh2
+Sep 23 16:48:26 LINUX-SRV02 sshd[5927]: Accepted password for agarcia from 10.0.0.51 port 44730 ssh2
+Sep 23 16:50:40 LINUX-SRV01 sshd[9442]: Accepted password for svc_backup from 10.0.0.53 port 50745 ssh2
+Sep 23 16:55:12 LINUX-SRV01 sshd[6150]: Accepted password for mchen from 10.0.0.53 port 49132 ssh2
+Sep 23 16:59:49 LINUX-SRV02 sshd[5478]: Accepted password for mchen from 10.0.0.50 port 54763 ssh2
+Sep 23 17:08:22 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 23 17:11:26 LINUX-SRV01 sshd[6909]: Accepted password for svc_backup from 10.0.0.52 port 43491 ssh2
+Sep 23 17:11:43 LINUX-SRV02 sshd[2599]: Accepted password for mchen from 10.0.0.53 port 54357 ssh2
+Sep 23 17:37:02 LINUX-SRV02 sshd[4438]: Accepted password for jsmith from 10.0.0.51 port 59265 ssh2
+Sep 23 18:24:15 LINUX-SRV01 CRON[3615]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 23 18:53:13 LINUX-SRV01 sshd[3725]: Accepted password for agarcia from 10.0.0.52 port 41451 ssh2
+Sep 23 19:07:57 LINUX-SRV01 CRON[9907]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 23 19:12:04 LINUX-SRV02 sshd[2845]: Accepted password for mchen from 10.0.0.51 port 50835 ssh2
+Sep 23 19:22:52 LINUX-SRV01 sshd[1971]: Accepted password for agarcia from 10.0.0.53 port 49087 ssh2
+Sep 23 19:27:36 LINUX-SRV01 sshd[4053]: Accepted password for svc_backup from 10.0.0.51 port 54160 ssh2
+Sep 23 19:32:48 LINUX-SRV02 CRON[6026]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 23 19:34:18 LINUX-SRV01 sshd[3793]: Accepted password for jsmith from 10.0.0.53 port 57178 ssh2
+Sep 23 19:39:58 LINUX-SRV01 sshd[4803]: Accepted password for jsmith from 10.0.0.53 port 42490 ssh2
+Sep 23 19:58:32 LINUX-SRV02 sshd[3837]: Accepted password for svc_backup from 10.0.0.52 port 55062 ssh2
+Sep 23 21:11:12 LINUX-SRV02 CRON[1999]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 23 23:35:02 LINUX-SRV02 CRON[6813]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 00:49:53 LINUX-SRV01 CRON[5835]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 07:04:06 LINUX-SRV01 CRON[1029]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 07:08:55 LINUX-SRV02 sshd[2936]: Accepted password for agarcia from 10.0.0.50 port 55250 ssh2
+Sep 24 07:11:57 LINUX-SRV01 sshd[4974]: Accepted password for jsmith from 10.0.0.53 port 59805 ssh2
+Sep 24 08:00:39 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 24 08:00:52 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 08:01:38 LINUX-SRV02 sshd[4505]: Accepted password for mchen from 10.0.0.53 port 46621 ssh2
+Sep 24 08:19:53 LINUX-SRV01 sshd[8368]: Accepted password for mchen from 10.0.0.50 port 48611 ssh2
+Sep 24 08:25:43 LINUX-SRV01 sshd[7861]: Accepted password for svc_backup from 10.0.0.52 port 44962 ssh2
+Sep 24 08:26:25 LINUX-SRV01 CRON[4084]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 08:30:22 LINUX-SRV02 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 08:38:58 LINUX-SRV01 sshd[6277]: Accepted password for agarcia from 10.0.0.51 port 48111 ssh2
+Sep 24 08:50:56 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 08:51:22 LINUX-SRV02 sshd[2101]: Accepted password for jsmith from 10.0.0.51 port 47733 ssh2
+Sep 24 09:09:35 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 24 09:19:11 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 24 09:25:25 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 09:28:34 LINUX-SRV02 sshd[2192]: Accepted password for svc_backup from 10.0.0.50 port 46165 ssh2
+Sep 24 09:40:07 LINUX-SRV01 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 09:40:30 LINUX-SRV01 sshd[6993]: Accepted password for jsmith from 10.0.0.51 port 50681 ssh2
+Sep 24 09:43:31 LINUX-SRV02 sshd[9180]: Accepted password for jsmith from 10.0.0.53 port 44560 ssh2
+Sep 24 10:15:28 LINUX-SRV02 sshd[9740]: Accepted password for agarcia from 10.0.0.52 port 43061 ssh2
+Sep 24 10:31:29 LINUX-SRV02 sshd[4920]: Accepted password for agarcia from 10.0.0.50 port 47944 ssh2
+Sep 24 10:47:19 LINUX-SRV02 sshd[7161]: Accepted password for agarcia from 10.0.0.52 port 49184 ssh2
+Sep 24 10:50:23 LINUX-SRV01 sshd[5390]: Accepted password for jsmith from 10.0.0.50 port 45053 ssh2
+Sep 24 11:01:07 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 24 11:15:17 LINUX-SRV01 sshd[6869]: Accepted password for jsmith from 10.0.0.53 port 42075 ssh2
+Sep 24 11:24:29 LINUX-SRV02 sshd[9341]: Accepted password for agarcia from 10.0.0.51 port 53152 ssh2
+Sep 24 11:27:00 LINUX-SRV02 sshd[4150]: Accepted password for mchen from 10.0.0.53 port 48077 ssh2
+Sep 24 11:45:44 LINUX-SRV02 sshd[8371]: Accepted password for jsmith from 10.0.0.51 port 52155 ssh2
+Sep 24 11:47:19 LINUX-SRV01 sshd[1436]: Accepted password for svc_backup from 10.0.0.52 port 59559 ssh2
+Sep 24 11:58:37 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 12:06:29 LINUX-SRV01 sshd[1440]: Accepted password for agarcia from 10.0.0.51 port 55126 ssh2
+Sep 24 12:07:44 LINUX-SRV02 sshd[1689]: Accepted password for agarcia from 10.0.0.52 port 49425 ssh2
+Sep 24 12:09:22 LINUX-SRV01 sshd[7236]: Accepted password for mchen from 10.0.0.52 port 55278 ssh2
+Sep 24 12:09:39 LINUX-SRV02 sshd[1613]: Accepted password for agarcia from 10.0.0.52 port 40303 ssh2
+Sep 24 12:21:39 LINUX-SRV01 sshd[1149]: Accepted password for jsmith from 10.0.0.51 port 47167 ssh2
+Sep 24 12:47:28 LINUX-SRV01 sshd[9409]: Accepted password for svc_backup from 10.0.0.51 port 53612 ssh2
+Sep 24 12:52:54 LINUX-SRV01 sshd[2885]: Accepted password for mchen from 10.0.0.50 port 40740 ssh2
+Sep 24 12:58:01 LINUX-SRV01 sshd[2320]: Accepted password for agarcia from 10.0.0.52 port 41038 ssh2
+Sep 24 13:13:48 LINUX-SRV02 sshd[6890]: Accepted password for svc_backup from 10.0.0.50 port 57593 ssh2
+Sep 24 13:13:48 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 24 13:21:07 LINUX-SRV02 sshd[6770]: Accepted password for svc_backup from 10.0.0.51 port 45546 ssh2
+Sep 24 13:29:14 LINUX-SRV02 CRON[4657]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 13:33:34 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 13:34:14 LINUX-SRV01 sshd[1797]: Accepted password for agarcia from 10.0.0.52 port 41656 ssh2
+Sep 24 13:41:41 LINUX-SRV01 sshd[8642]: Accepted password for mchen from 10.0.0.51 port 44014 ssh2
+Sep 24 13:46:34 LINUX-SRV02 sshd[1998]: Accepted password for mchen from 10.0.0.52 port 58242 ssh2
+Sep 24 13:53:44 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 14:04:40 LINUX-SRV02 sshd[8546]: Accepted password for agarcia from 10.0.0.51 port 51342 ssh2
+Sep 24 14:05:33 LINUX-SRV02 sshd[7653]: Accepted password for svc_backup from 10.0.0.51 port 49746 ssh2
+Sep 24 14:08:59 LINUX-SRV02 sshd[3852]: Accepted password for mchen from 10.0.0.51 port 51845 ssh2
+Sep 24 14:16:50 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 24 14:19:32 LINUX-SRV01 sshd[1256]: Accepted password for agarcia from 10.0.0.52 port 46788 ssh2
+Sep 24 14:24:39 LINUX-SRV02 sshd[5794]: Accepted password for agarcia from 10.0.0.52 port 49480 ssh2
+Sep 24 14:38:18 LINUX-SRV01 sshd[6455]: Accepted password for svc_backup from 10.0.0.51 port 49934 ssh2
+Sep 24 14:39:06 LINUX-SRV01 sshd[8909]: Accepted password for mchen from 10.0.0.50 port 43425 ssh2
+Sep 24 14:44:28 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 24 14:58:07 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 24 15:21:01 LINUX-SRV02 sshd[3102]: Accepted password for svc_backup from 10.0.0.52 port 58065 ssh2
+Sep 24 15:23:18 LINUX-SRV01 sshd[5732]: Accepted password for agarcia from 10.0.0.53 port 44597 ssh2
+Sep 24 15:23:44 LINUX-SRV01 sudo: svc_backup : TTY=pts/0 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/bin/systemctl restart cron
+Sep 24 15:25:24 LINUX-SRV01 sshd[3623]: Accepted password for agarcia from 10.0.0.51 port 50845 ssh2
+Sep 24 15:37:38 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 24 15:43:38 LINUX-SRV02 sshd[3444]: Accepted password for svc_backup from 10.0.0.53 port 49826 ssh2
+Sep 24 15:44:06 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 15:47:27 LINUX-SRV02 sshd[7786]: Accepted password for agarcia from 10.0.0.52 port 52293 ssh2
+Sep 24 15:52:58 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 15:53:28 LINUX-SRV01 CRON[6514]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 15:59:59 LINUX-SRV02 sshd[2218]: Accepted password for mchen from 10.0.0.50 port 49187 ssh2
+Sep 24 16:09:08 LINUX-SRV01 sshd[4279]: Accepted password for mchen from 10.0.0.53 port 44018 ssh2
+Sep 24 16:10:15 LINUX-SRV02 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 16:17:36 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 16:23:28 LINUX-SRV02 sshd[6126]: Accepted password for agarcia from 10.0.0.52 port 53563 ssh2
+Sep 24 16:27:52 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/bin/systemctl status nginx
+Sep 24 16:35:58 LINUX-SRV01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/syslog
+Sep 24 16:36:40 LINUX-SRV02 sshd[5911]: Accepted password for mchen from 10.0.0.53 port 55561 ssh2
+Sep 24 16:41:43 LINUX-SRV01 sshd[6644]: Accepted password for jsmith from 10.0.0.53 port 42089 ssh2
+Sep 24 16:50:44 LINUX-SRV01 sshd[9609]: Accepted password for agarcia from 10.0.0.50 port 54639 ssh2
+Sep 24 16:58:22 LINUX-SRV02 sudo: mchen : TTY=pts/0 ; PWD=/home/mchen ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 17:42:09 LINUX-SRV02 sshd[9951]: Accepted password for jsmith from 10.0.0.53 port 47161 ssh2
+Sep 24 17:48:50 LINUX-SRV02 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 17:49:32 LINUX-SRV01 sudo: agarcia : TTY=pts/0 ; PWD=/home/agarcia ; USER=root ; COMMAND=/usr/bin/df -h
+Sep 24 18:11:37 LINUX-SRV02 sshd[4385]: Accepted password for agarcia from 10.0.0.51 port 46781 ssh2
+Sep 24 18:26:10 LINUX-SRV01 sshd[1768]: Accepted password for svc_backup from 10.0.0.53 port 51285 ssh2
+Sep 24 18:41:05 LINUX-SRV01 CRON[8728]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 18:49:37 LINUX-SRV01 sshd[4948]: Accepted password for jsmith from 10.0.0.51 port 46289 ssh2
+Sep 24 18:53:29 LINUX-SRV02 sshd[7363]: Accepted password for svc_backup from 10.0.0.51 port 47957 ssh2
+Sep 24 19:26:58 LINUX-SRV02 CRON[9882]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 20:39:21 LINUX-SRV01 CRON[7120]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 22:00:51 LINUX-SRV01 CRON[4594]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 22:03:02 LINUX-SRV02 CRON[1975]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 23:03:21 LINUX-SRV02 CRON[3854]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 23:44:44 LINUX-SRV02 CRON[8859]: (root) CMD (/usr/local/bin/nightly_backup.sh)
+Sep 24 23:47:49 LINUX-SRV01 CRON[3885]: (root) CMD (/usr/local/bin/nightly_backup.sh)

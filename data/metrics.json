@@ -1,0 +1,71 @@
+{
+  "total_campaigns": 16,
+  "detected_campaigns": 16,
+  "missed_campaigns": [],
+  "total_alerts": 29,
+  "true_positive_alerts": 28,
+  "false_positive_alerts": 1,
+  "precision": 0.966,
+  "recall": 1.0,
+  "f1": 0.982,
+  "by_type": {
+    "persistence": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 4
+    },
+    "brute_force": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 5
+    },
+    "privilege_escalation": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 3
+    },
+    "new_admin_account": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 2
+    },
+    "impossible_login": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 2
+    },
+    "port_scan": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 4
+    },
+    "suspicious_powershell": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 6
+    },
+    "large_outbound_transfer": {
+      "campaigns": 2,
+      "detected": 2,
+      "alerts": 2
+    }
+  },
+  "false_positives_by_type": {
+    "suspicious_powershell": 1
+  },
+  "fp_alert_list": [
+    {
+      "ts": "2026-09-22 03:31:23",
+      "severity": "High",
+      "src_ip": "WIN-DESKTOP01",
+      "target_host": "WIN-DESKTOP01",
+      "attack_type": "suspicious_powershell",
+      "mitre_technique": "T1059.001",
+      "mitre_tactic": "Execution",
+      "evidence": "User 'jsmith' ran PowerShell flagged for: privilege enumeration command. Command: User=jsmith; ScriptBlock=whoami /priv",
+      "recommended_response": "Isolate the host from the network, capture a memory image, terminate the process, and review PowerShell ScriptBlock logs on this host for the preceding 24h.",
+      "detector": "powershell_v1",
+      "confidence": 0.8
+    }
+  ]
+}
