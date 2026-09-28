@@ -30,8 +30,8 @@ Firewall ────┘       raw formats)                   based             
 | File | Role |
 |---|---|
 | `src/generate_logs.py` | Simulates 3 days of activity across 2 Windows PCs, 2 Linux servers and a firewall. Writes benign background traffic plus 16 labeled attack campaigns (2 of each of the 8 types). Labels go to `data/ground_truth.json` only — never into the detector's input. |
-| `src/collector.py` | The "Log Collector." Parses the three raw formats (Windows EVTX-style pipe log, Linux syslog/auth.log, firewall CSV) with regex into one normalized `events` table in `data/siem.db`. |
-| `src/detect.py` | The "Detection Engine." 8 independent detectors read `events` and write `alerts` with severity, MITRE ATT&CK technique + tactic, plain-language evidence, and a recommended response. |
+| `src/collector.py` | The "Log Collector" Parses the three raw formats (Windows EVTX-style pipe log, Linux syslog/auth.log, firewall CSV) with regex into one normalized `events` table in `data/siem.db`. |
+| `src/detect.py` | The "Detection Engine" 8 independent detectors read `events` and write `alerts` with severity, MITRE ATT&CK technique + tactic, plain-language evidence, and a recommended response. |
 | `src/evaluate.py` | Scores `alerts.json` against `ground_truth.json` to compute true/false-positive rates, per-campaign recall, and per-attack-type precision. |
 | `src/build_dashboard.py` | Bakes the alerts + scorecard into `output/dashboard.html`, a self-contained analyst console. |
 
