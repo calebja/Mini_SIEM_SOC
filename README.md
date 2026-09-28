@@ -10,7 +10,6 @@
 ![Precision](https://img.shields.io/badge/precision-0.97-2EA44F)
 ![F1](https://img.shields.io/badge/F1-0.98-2EA44F)
 ![Data](https://img.shields.io/badge/data-100%25_synthetic-orange)
-![License](https://img.shields.io/github/license/calebja/Mini_SIEM_SOC?color=green)
 
 A small, complete detection pipeline, including synthetic multi-source logs → a log
 collector that normalizes them → a rule-based detection engine covering 8
