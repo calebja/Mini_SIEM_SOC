@@ -12,7 +12,7 @@
 ![Data](https://img.shields.io/badge/data-100%25_synthetic-orange)
 ![License](https://img.shields.io/github/license/calebja/Mini_SIEM_SOC?color=green)
 
-A small but complete detection pipeline: synthetic multi-source logs → a log
+A small, complete detection pipeline, including synthetic multi-source logs → a log
 collector that normalizes them → a rule-based detection engine covering 8
 attack classes → a scorecard that grades the engine against a hidden
 red-team answer key → a dashboard.
