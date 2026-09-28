@@ -67,7 +67,7 @@ python3 build_dashboard.py # render the dashboard
 - **Alert-level precision: 0.97** — 28 of 29 fired alerts corresponded to a real campaign.
 - **F1: 0.98**
 
-The one false positive is a genuine, explainable overlap rather than a tuning bug: a
+The one false positive is an overlap. A
 `whoami /priv` command that's part of a privilege-escalation campaign also matches the
 suspicious-PowerShell detector's "privilege enumeration" pattern on its own, so two
 independent detectors fire on the same underlying event. A production SIEM would
@@ -75,21 +75,21 @@ correlate these into a single incident rather than counting it as two; `evaluate
 intentionally does not paper over this, since alert-correlation across detectors is a
 real tuning problem, not an edge case to hide.
 
-Full per-type breakdown, the false-positive list, and every raw alert are in
+Full per-type breakdown, false-positive list, and every raw alert are in
 `data/metrics.json` / `data/alerts.json`, and are browsable in the dashboard.
 
 ## Notes on the design
 
-- **Ground truth is a hidden answer key, not detector input.** The generator tags
+- **Ground truth is a hidden answer key** The generator tags
   attack-related log lines with a `GT=ATK-###` suffix; the collector strips it into its
   own `gt_id` column, and every detector function only ever reads operational fields
   (timestamps, users, IPs, ports, command text). `evaluate.py` is the only script that
   touches `ground_truth.json`.
-- **Campaign matching is nearest-in-time, not first-match.** Two exfil campaigns landed
+- **Campaign matching is nearest-in-time.** Two exfil campaigns landed
   under two minutes apart on the same host during generation; a naive "first ground-truth
   row that overlaps" rule misattributed one alert to the wrong campaign and manufactured
   a false negative. `evaluate.py` instead attributes each alert to whichever campaign's
   start time it's closest to — the kind of correlation-window bug worth catching in a
   real detection engine, not just this lab.
 - **Everything here is synthetic.** All IPs, usernames, and hostnames are placeholders;
-  nothing in this repo touches a real network.
+  nothing in this repo involves a real network.
