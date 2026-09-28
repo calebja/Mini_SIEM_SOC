@@ -79,16 +79,16 @@ Full per-type breakdown, false-positive list, and every raw alert are in
 
 ## Notes on the design
 
-- **Ground truth is a hidden answer key** The generator tags
+- The generator tags
   attack-related log lines with a `GT=ATK-###` suffix; the collector strips it into its
   own `gt_id` column, and every detector function only ever reads operational fields
   (timestamps, users, IPs, ports, command text). `evaluate.py` is the only script that
   touches `ground_truth.json`.
-- **Campaign matching is nearest-in-time.** Two exfil campaigns landed
+- Two exfil campaigns landed
   under two minutes apart on the same host during generation; a naive "first ground-truth
   row that overlaps" rule misattributed one alert to the wrong campaign and manufactured
   a false negative. `evaluate.py` instead attributes each alert to whichever campaign's
   start time it's closest to — the kind of correlation-window bug worth catching in a
   real detection engine, not just this lab.
-- **Everything here is synthetic.** All IPs, usernames, and hostnames are placeholders;
+- All IPs, usernames, and hostnames are placeholders;
   nothing in this repo involves a real network.
