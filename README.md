@@ -1,5 +1,17 @@
 # Signal Deck — Mini SIEM + SOC Lab
 
+![Python](https://img.shields.io/badge/python-3.x-3776AB?logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/storage-SQLite-003B57?logo=sqlite&logoColor=white)
+![Dashboard](https://img.shields.io/badge/dashboard-self--contained_HTML-E34F26?logo=html5&logoColor=white)
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-8_techniques_mapped-B91C1C)
+![Detectors](https://img.shields.io/badge/detection_rules-8-6D28D9)
+![Log Sources](https://img.shields.io/badge/log_sources-Windows%20%7C%20Linux%20%7C%20Firewall-183A61)
+![Recall](https://img.shields.io/badge/recall-16%2F16_(100%25)-2EA44F)
+![Precision](https://img.shields.io/badge/precision-0.97-2EA44F)
+![F1](https://img.shields.io/badge/F1-0.98-2EA44F)
+![Data](https://img.shields.io/badge/data-100%25_synthetic-orange)
+![License](https://img.shields.io/github/license/calebja/Mini_SIEM_SOC?color=green)
+
 A small but complete detection pipeline: synthetic multi-source logs → a log
 collector that normalizes them → a rule-based detection engine covering 8
 attack classes → a scorecard that grades the engine against a hidden
