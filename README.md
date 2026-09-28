@@ -1,4 +1,4 @@
-# Signal Deck — Mini SIEM + SOC Lab
+# Signal Deck - Mini SIEM + SOC Lab
 
 ![Python](https://img.shields.io/badge/python-3.x-3776AB?logo=python&logoColor=white)
 ![SQLite](https://img.shields.io/badge/storage-SQLite-003B57?logo=sqlite&logoColor=white)
